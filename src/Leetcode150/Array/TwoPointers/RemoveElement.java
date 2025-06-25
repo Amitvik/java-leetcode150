@@ -59,7 +59,7 @@ public class RemoveElement {
             }
             index++;
         }
-        return replace_index;
+            return replace_index;
     }
 
     public static void main(String[] args) {
