@@ -33,18 +33,20 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
 public class ValidAnagram {
     public static boolean isAnagram(String s, String t) {
         Map<Character, Integer> sMap = new HashMap<>();
-        Map<Character, Integer> tMap = new HashMap<>();
+
         int i = 0;
-        if (s.length() != t.length()) return false;
+        if (s.length() != t.length())
+            return false;
         while (i < s.length()) {
             Character sChar = s.charAt(i);
             Character tChar = t.charAt(i);
             sMap.put(sChar, sMap.getOrDefault(sChar, 0) + 1);
-            tMap.put(tChar, tMap.getOrDefault(tChar, 0) - 1);
+            sMap.put(tChar, sMap.getOrDefault(tChar, 0) - 1);
             i++;
         }
         for (int val : sMap.values()) {
-            if (val != 0) return false;
+            if (val != 0)
+                return false;
         }
         return true;
     }
